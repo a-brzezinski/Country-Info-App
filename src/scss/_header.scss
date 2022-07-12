@@ -1,0 +1,71 @@
+.header {
+	width: 100%;
+	border-bottom: 2px solid $green;
+	padding-top: 1em;
+
+	&__error {
+		// display: none;
+		text-align: center;
+		text-transform: uppercase;
+		color: red;
+		font-size: 1.5rem;
+		margin-bottom: 1em;
+	}
+}
+
+.search {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+
+	&__field {
+		flex-grow: 1;
+		font-family: inherit;
+		font-size: 2rem;
+		border: none;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__button {
+		position: relative;
+		text-align: center;
+		letter-spacing: 1px;
+		color: $white;
+		font-family: inherit;
+		font-size: 2rem;
+		text-transform: uppercase;
+		border: none;
+		background: none;
+		background-image: $gradient;
+		cursor: pointer;
+		margin-left: 0.1em;
+		padding: 0.5em 1em;
+		border-radius: 1em;
+		overflow: hidden;
+
+		&::after {
+			position: absolute;
+			top: -30px;
+			left: -100%;
+			width: 35px;
+			height: 100px;
+			transform: rotate(45deg);
+			background-color: black;
+			opacity: 0.1;
+			content: '';
+			animation: buttonAnimation linear 1s infinite;
+		}
+	}
+}
+
+@keyframes buttonAnimation {
+	from {
+		left: -100%;
+	}
+	to {
+		left: 100%;
+	}
+}
