@@ -7,7 +7,6 @@ const errorItem = document.querySelector('.header__error');
 const results = document.querySelector('.results');
 
 const renderCountry = data => {
-	console.log(results);
 	results.classList.add('showResults');
 	const html = `
 				<div class="results__item">
@@ -58,12 +57,11 @@ const getCountries = async name => {
 	if (!fetchCountryData.ok) {
 		throw handlingError(MESSAGE_ERROR);
 	}
-	// if (fetchCountryData.ok) {
+
 	const fetchedData = await fetchCountryData.json();
 	const data = fetchedData[0];
 	renderCountry(data);
 	handlingError('');
-	// }
 
 	try {
 	} catch (err) {
@@ -74,7 +72,7 @@ const getCountries = async name => {
 searchForm.addEventListener('submit', e => {
 	e.preventDefault();
 	const inputValue = inputElement.value;
-	console.log(inputValue);
+	if (inputValue === '') return;
 	getCountries(inputValue);
 	inputElement.innerHTML = '';
 });
