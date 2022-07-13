@@ -72,7 +72,7 @@ const getCountries = async name => {
 searchForm.addEventListener('submit', e => {
 	e.preventDefault();
 	const inputValue = inputElement.value;
-	if (inputValue === '') return;
+	if (inputValue.trim('') === '') return;
 	getCountries(inputValue);
 	inputElement.innerHTML = '';
 });
